@@ -143,8 +143,7 @@ void main(){
         print("-------------------------- ");
     print(" ");
         stdout.write("Quantos reais você deseja depositar: ");
-         print(" ");
-    print("-------------------------- ");
+      
         String? entrada=stdin.readLineSync();
        
         val=double.parse(entrada!);
