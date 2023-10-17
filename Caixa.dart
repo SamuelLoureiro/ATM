@@ -8,7 +8,7 @@ import './Cliente.dart';
 
 
 
-List<Cliente> clientes;
+//List<Cliente> clientes;
 
 void main(){
   int op=0;
