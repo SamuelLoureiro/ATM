@@ -62,10 +62,12 @@ List<Cliente> clientes = [
   Cliente(nome:'Pedro', cpf:'3',saldo:3000.0),
 ];
 void main(){
+  int cont;
   Cliente cli=new Cliente(nome:'',cpf:'',saldo:0);
   double val=0;
   int op=0;
   while(true){
+
      print("-------------------------- ");
     print(" ");
     print("Bem vindo ao banco Asimov Jr.");
@@ -80,6 +82,7 @@ void main(){
 
   
   while(true){
+    
     print("-------------------------- ");
     print(" ");
       stdout.write("Digite seu cpf: ");
@@ -230,17 +233,33 @@ void main(){
     String nome=n!;
     print("-------------------------- ");
         print(" ");
-    stdout.write("Digite seu cpf: ");
-     
-    String? c=stdin.readLineSync();
-    String cpf=c!;
-    
-    clientes.add(Cliente(nome:nome,cpf:cpf,saldo:0.0));
+        cont=0;
+    while (cont==0) {
+  stdout.write("Digite seu cpf: ");
+  String? c = stdin.readLineSync();
+  bool cpfCadastrado = false;
+  for (int i = 0; i < clientes.length; i++) {
+    if (clientes[i].cpf == c) {
+       print("-------------------------- ");
+    print(" ");
+      print("CPF já cadastrado");
+      print(" ");
+    print("-------------------------- ");
+      cpfCadastrado = true;
+      break;
+    }
+  }
+  if (!cpfCadastrado) {
+    clientes.add(Cliente(nome: nome, cpf: c!, saldo: 0.0));
     print("-------------------------- ");
     print(" ");
     print("Conta criada com sucesso!");
     print(" ");
     print("-------------------------- ");
+    cont=1;
+  }
+}
+     
   }else{
     print("-------------------------- ");
     print(" ");
